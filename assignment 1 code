@@ -1,0 +1,59 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+int main()
+{
+	string msg , key , key2 , MandK , temp , temp2;
+	ifstream myfile ("message_generator.txt");
+	getline (myfile,msg);
+	getline (myfile,key);
+	int msgLen= msg.length();
+	string Omsg=msg;
+	int keyLen= key.length();				
+	int KL = key.length();					
+	int	alter;
+	for(int i=0;i<keyLen-1;i++)				// Frame after X zeros appended
+	{
+		msg+="0";
+	}
+	for(int i=0;i<keyLen;i++)
+	{
+		key2+="0";
+	}
+	for(int i=0;i<keyLen;i++)
+	{
+		temp +=msg[i];
+	}
+	for(int i=0; i<msgLen ;i++)			
+	{
+		for(int j=0; j<keyLen ; j++)		// XOR
+		{
+			if(temp[0] == '1')
+			{	
+				if(temp[j] != key[j])
+				temp2+= "1";
+				else
+				temp2+= "0";
+			}
+			else if(temp[0] == '0')
+			{	
+				if(temp[j] != key2[j])
+				temp2+= "1";
+				else
+				temp2+= "0";
+			}
+		}
+		if (msg[KL+i] == '1' || msg[KL+i] == '0')
+		{
+			temp2+= msg[KL+i];
+		}
+		else
+			goto conte;
+	conte:
+		for(int k=0;k<keyLen;k++)
+		{
+			temp[k]=temp2[k+1];				// XOR result
+		}
+		temp2="";
+
