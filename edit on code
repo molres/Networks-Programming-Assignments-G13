@@ -1,0 +1,42 @@
+	//edit//
+			string Key2 , Temp , Temp2;
+			string OMsg=Msg1;
+			int Kl = key.length();					
+			for(int i=0;i<keyLen-1;i++)
+			{
+				Msg1+="0";
+			}
+			for(int i=0;i<keyLen;i++)
+			{
+				Key2+="0";
+			}
+			
+			for(int i=0;i<keyLen;i++)
+			{
+				Temp +=Msg1[i];
+			}		
+			for(int i=0; i<msgLen ;i++)			
+			{
+				for(int j=0; j<keyLen ; j++)
+				{
+					if(Temp[0] == '1')
+					{	
+						if(Temp[j] != Key1[j])
+						Temp2+= "1";
+						else
+						Temp2+= "0";
+					}
+					else if(Temp[0] == '0')
+					{	
+						if(Temp[j] != Key2[j])
+						Temp2+= "1";
+						else
+						Temp2+= "0";
+					}
+				}
+				if (Msg1[Kl+i] == '1' || Msg1[Kl+i] == '0')
+				{
+					Temp2+= Msg1[Kl+i];
+				}
+				else
+					goto conti;
