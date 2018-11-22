@@ -94,7 +94,7 @@ conte:
 			ofstream out_data("message_generator.txt"); // output to file in desktop
 			out_data << Msg1 << endl ;
 			out_data << Key1;
-//edit//
+//edit: Mostafa Alaa//
 			string Key2 , Temp , Temp2;
 			string OMsg=Msg1;
 			int Kl = key.length();					
