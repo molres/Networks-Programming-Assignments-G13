@@ -136,3 +136,22 @@ conte:
 				}
 				else
 goto conti;
+	conti:
+				for(int k=0;k<keyLen;k++)
+				{
+					Temp[k]=Temp2[k+1];	
+				}
+				Temp2="";
+			}
+			ofstream out_data2("generator_output.txt");
+			out_data2 << OMsg << Temp.substr(0,keyLen-1) ;
+		
+		}
+		else if ( answer == "4")
+		{
+			break;
+		}
+		cout << "Please enter the next command number:" << endl;
+		cout << "1) Generate   2) Verify   3) Alter   4) Exit" << endl;
+	}
+}
